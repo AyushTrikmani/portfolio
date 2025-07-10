@@ -89,14 +89,14 @@ document.addEventListener('DOMContentLoaded', function() {
     observer.observe(skillsSection);
     
     // Download Resume Button
-    const downloadBtn = document.querySelector('.download-btn');
+    // const downloadBtn = document.querySelector('.download-btn');
     
-    downloadBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        // In a real scenario, you would link to your actual resume PDF
-        alert('Resume download would start here. Replace with actual PDF link.');
-        // window.location.href = 'path/to/resume.pdf';
-    });
+    // downloadBtn.addEventListener('click', function(e) {
+    //     e.preventDefault();
+    //     // In a real scenario, you would link to your actual resume PDF
+    //     alert('Resume download would start here. Replace with actual PDF link.');
+    //     // window.location.href = 'path/to/resume.pdf';
+    // });
     
     // Form submission
     document.querySelector('.contact-form').addEventListener('submit', async function(e) {
