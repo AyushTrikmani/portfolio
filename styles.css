@@ -268,6 +268,10 @@ header {
 
 .education, .certifications {
     margin-bottom: 3rem;
+    background: var(--secondary-color);
+    padding: 1.5rem 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 0 1rem var(--primary-color);
 }
 
 .education h4, .certifications h4 {
@@ -325,6 +329,7 @@ header {
     text-align: center;
     transition: .5s ease;
     border: .2rem solid var(--secondary-color);
+    color: var(--text-color);
 }
 
 .skill-item:hover {
@@ -408,6 +413,7 @@ header {
     overflow: hidden;
     transition: .5s ease;
     box-shadow: 0 0 1rem rgba(0, 0, 0, .2);
+    color: var(--text-color);
 }
 
 .project-card:hover {
@@ -447,6 +453,7 @@ header {
     margin-bottom: 1.5rem;
 }
 
+/* Tech stack tags */
 .tech-stack {
     display: flex;
     flex-wrap: wrap;
@@ -457,13 +464,9 @@ header {
 .tech-stack span {
     font-size: 1.2rem;
     padding: 0.5rem 1rem;
-    background: var(--bg-color);
+    background: var(--secondary-color);
     border-radius: 0.5rem;
-}
-
-.project-info .btn {
-    width: 100%;
-    text-align: center;
+    color: var(--text-color);
 }
 
 /* Contact Section */
@@ -488,6 +491,7 @@ header {
     padding: 2rem;
     border-radius: 1.5rem;
     transition: .5s ease;
+    color: var(--text-color);
 }
 
 .info-item:hover {
@@ -510,6 +514,7 @@ header {
     font-size: 1.4rem;
 }
 
+/* Contact form */
 .contact-form {
     flex: 1;
     display: flex;
@@ -540,140 +545,168 @@ header {
     cursor: pointer;
 }
 
-/* Modern Developer Footer */
-.dev-footer {
-  background: #181c24;
+/* Footer */
+.glass-footer-ultimate {
+  background: rgba(24,28,36,0.92);
+  box-shadow: 0 8px 32px 0 #00e6a830, 0 1.5px 0 #00e6a8 inset;
+  backdrop-filter: blur(12px);
+  border-top: 2px solid #00e6a8;
   color: #eaeaea;
   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-  padding: 0;
-  margin-top: 60px;
+  margin-top: 80px;
   letter-spacing: 0.01em;
+  position: relative;
+  z-index: 2;
 }
 
-.footer-content {
+.gf-ultimate-content {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 40px;
+  gap: 60px;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 48px 24px 32px 24px;
+  padding: 56px 32px 36px 32px;
   flex-wrap: wrap;
 }
 
-.footer-section {
-  flex: 1 1 220px;
+.gf-ultimate-col {
+  flex: 1 1 260px;
   min-width: 220px;
 }
 
-.footer-section.about h2 {
-  font-size: 2rem;
-  font-weight: 700;
+.gf-ultimate-col.about h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
   color: #00e6a8;
-  margin-bottom: 8px;
-  letter-spacing: 0.02em;
+  margin-bottom: 12px;
+  letter-spacing: 0.03em;
+  text-shadow: 0 2px 24px #00e6a880;
 }
 
-.footer-tagline {
-  font-size: 1.05rem;
+.gf-ultimate-col.about p {
+  font-size: 1.13rem;
   color: #b0b8c1;
   margin-bottom: 0;
   margin-top: 0;
 }
 
-.footer-section.links h3,
-.footer-section.contact h3 {
-  font-size: 1.1rem;
+.gf-ultimate-col.nav h3,
+.gf-ultimate-col.contact h3 {
+  font-size: 1.18rem;
   color: #00e6a8;
-  margin-bottom: 12px;
-  font-weight: 600;
+  margin-bottom: 16px;
+  font-weight: 700;
   letter-spacing: 0.01em;
 }
 
-.footer-section.links ul {
+.gf-ultimate-col.nav ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.footer-section.links ul li {
-  margin-bottom: 8px;
+.gf-ultimate-col.nav ul li {
+  margin-bottom: 12px;
 }
 
-.footer-section.links ul li a {
+.gf-ultimate-col.nav ul li a {
   color: #eaeaea;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 1.08rem;
   padding: 2px 0;
-  transition: color 0.2s;
-  border-bottom: 1px solid transparent;
+  transition: color 0.2s, border-bottom 0.2s;
+  border-bottom: 1.5px solid transparent;
+  font-weight: 600;
 }
 
-.footer-section.links ul li a:hover {
+.gf-ultimate-col.nav ul li a:hover {
   color: #00e6a8;
-  border-bottom: 1px solid #00e6a8;
+  border-bottom: 1.5px solid #00e6a8;
+  letter-spacing: 0.04em;
 }
 
-.footer-contact-link {
+.gf-ultimate-col.contact a {
   display: flex;
   align-items: center;
   color: #eaeaea;
   text-decoration: none;
-  font-size: 1rem;
-  margin-bottom: 8px;
+  font-size: 1.08rem;
+  margin-bottom: 12px;
   transition: color 0.2s;
-  gap: 8px;
+  gap: 10px;
+  font-weight: 600;
 }
 
-.footer-contact-link i {
-  font-size: 1.1rem;
+.gf-ultimate-col.contact a i {
+  font-size: 1.22rem;
   color: #00e6a8;
-  margin-right: 6px;
+  margin-right: 8px;
 }
 
-.footer-contact-link:hover {
+.gf-ultimate-col.contact a:hover {
   color: #00e6a8;
 }
 
-.footer-social {
-  margin-top: 12px;
+.gf-ultimate-socials {
+  margin-top: 18px;
   display: flex;
-  gap: 18px;
+  gap: 28px;
 }
 
-.footer-social a {
+.gf-ultimate-socials a {
   display: flex;
   align-items: center;
   justify-content: center;
   background: #232733;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 52px;
+  height: 52px;
   color: #eaeaea;
-  font-size: 1.3rem;
-  transition: background 0.2s, color 0.2s, transform 0.2s;
-  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+  font-size: 1.7rem;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+  box-shadow: 0 2px 12px 0 #00e6a830;
+  border: 1.5px solid #232733;
 }
 
-.footer-social a:hover {
+.gf-ultimate-socials a:hover {
   background: #00e6a8;
   color: #181c24;
-  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 0 16px #00e6a8cc;
+  transform: translateY(-3px) scale(1.11);
+  border: 1.5px solid #00e6a8;
 }
 
-.footer-divider {
-  border-top: 1px solid #232733;
+.gf-ultimate-divider {
+  border-top: 1.5px solid #232733;
   margin: 0 auto;
   max-width: 1200px;
 }
 
-.footer-bottom {
+.gf-ultimate-bottom {
   text-align: center;
   padding: 18px 0 12px 0;
-  font-size: 1rem;
+  font-size: 1.01rem;
   color: #b0b8c1;
-  background: #181c24;
+  background: transparent;
   letter-spacing: 0.01em;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .gf-ultimate-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 32px;
+    padding: 40px 16px 24px 16px;
+    text-align: center;
+  }
+  .gf-ultimate-col {
+    min-width: 0;
+  }
+  .gf-ultimate-socials {
+    justify-content: center;
+  }
 }
 
 /* Animations */
@@ -802,21 +835,4 @@ header {
     .projects-grid {
         grid-template-columns: 1fr;
     }
-}
-
-/* Responsive Design */
-@media (max-width: 900px) {
-  .footer-content {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 32px;
-    padding: 40px 16px 24px 16px;
-    text-align: center;
-  }
-  .footer-section {
-    min-width: 0;
-  }
-  .footer-social {
-    justify-content: center;
-  }
 }
