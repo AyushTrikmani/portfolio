@@ -36,8 +36,8 @@ const Footer = () => {
                 {/* Column 3: Contact & Top */}
                 <div className="gf-ultimate-col gf-footer-contact">
                     <h3>Get In Touch</h3>
-                    <a href="mailto:ayushtrikmani124@gmail.com" className="footer-contact-link">
-                        <i className="fas fa-envelope"></i> ayushtrikmani124@gmail.com
+                    <a href="mailto:ayushtrikmani@gmail.com" className="footer-contact-link">
+                        <i className="fas fa-envelope"></i> ayushtrikmani@gmail.com
                     </a>
                     <a href="tel:+916352243970" className="footer-contact-link">
                         <i className="fas fa-phone"></i> +91 6352243970
