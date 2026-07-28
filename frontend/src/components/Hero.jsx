@@ -1,13 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 
-const TERMINAL_LINES = [
-    { prompt: '~', cmd: 'node solve.js --domain job-portals healthcare ai', delay: 0 },
-    { prompt: '~', cmd: null, output: '✓ Built UpYourJob — role-based job board + AI mock interviews', delay: 900 },
-    { prompt: '~', cmd: null, output: '✓ Built Swasthya — pharmacy & lab test booking platform', delay: 1800 },
-    { prompt: '~', cmd: null, output: '✓ Running ceramic tile defect detection with TensorFlow…', delay: 2700 },
+const ROLES = [
+    'MERN Stack Developer',
+    'React.js Developer',
+    'Full-Stack Developer',
 ];
-
-const TAGLINE = 'I build full-stack products that solve real workflow problems.';
 
 const Hero = () => {
     const prefersReduced = useRef(
@@ -15,116 +12,101 @@ const Hero = () => {
         window.matchMedia('(prefers-reduced-motion: reduce)').matches
     );
 
-    // --- subtle one-phrase typewriter for tagline ---
-    const [displayed, setDisplayed] = useState(prefersReduced.current ? TAGLINE : '');
-    const [typeDone, setTypeDone] = useState(prefersReduced.current);
-    const timerRef = useRef(null);
+    // Typewriter — cycles through roles slowly
+    const [text, setText] = useState('');
+    const [roleIndex, setRoleIndex] = useState(0);
+    const [charIndex, setCharIndex] = useState(0);
+    const [isDeleting, setIsDeleting] = useState(false);
+    const [speed, setSpeed] = useState(120);
 
     useEffect(() => {
-        if (prefersReduced.current) return;
-        let i = 0;
-        const speed = 38; // slower = subtler
-        const type = () => {
-            if (i <= TAGLINE.length) {
-                setDisplayed(TAGLINE.slice(0, i));
-                i++;
-                timerRef.current = setTimeout(type, speed);
+        if (prefersReduced.current) {
+            setText(ROLES[0]);
+            return;
+        }
+        const current = ROLES[roleIndex];
+        const handle = setTimeout(() => {
+            if (isDeleting) {
+                setText(current.substring(0, charIndex - 1));
+                setCharIndex(p => p - 1);
+                setSpeed(55);
             } else {
-                setTypeDone(true);
+                setText(current.substring(0, charIndex + 1));
+                setCharIndex(p => p + 1);
+                setSpeed(120);
             }
-        };
-        // slight entrance delay so page settles first
-        timerRef.current = setTimeout(type, 600);
-        return () => clearTimeout(timerRef.current);
-    }, []);
 
-    // --- terminal animation ---
-    const [visibleLines, setVisibleLines] = useState(prefersReduced.current ? TERMINAL_LINES.length : 0);
-
-    useEffect(() => {
-        if (prefersReduced.current) return;
-        TERMINAL_LINES.forEach((line, i) => {
-            setTimeout(() => setVisibleLines(i + 1), line.delay + 300);
-        });
-    }, []);
+            if (!isDeleting && charIndex === current.length) {
+                setIsDeleting(true);
+                setSpeed(1800); // pause at end
+            } else if (isDeleting && charIndex === 0) {
+                setIsDeleting(false);
+                setRoleIndex(p => (p + 1) % ROLES.length);
+                setSpeed(500);
+            }
+        }, speed);
+        return () => clearTimeout(handle);
+    }, [charIndex, isDeleting, roleIndex, speed]);
 
     return (
         <section id="home" className="hero">
             <div className="container">
                 <div className="hero-content">
                     {/* LEFT: text */}
-                    <div className="hero-text hero-text--animate">
-                        <p className="hero-eyebrow">Ayush Trikmani · Full-Stack Developer</p>
+                    <div className="hero-text">
 
-                        <h1 className="hero-headline">
-                            {displayed}
-                            {!typeDone && (
+                        {/* Availability badge */}
+                        <div className="hero-badge">
+                            <span className="hero-badge-dot"></span>
+                            Available for full-time roles
+                        </div>
+
+                        <h3 className="hero-greeting">Hello, I'm</h3>
+                        <h1>Ayush Trikmani</h1>
+                        <h3>
+                            And I'm a&nbsp;
+                            <span className="typewriter">{text}</span>
+                            {!prefersReduced.current && (
                                 <span className="hero-cursor" aria-hidden="true">|</span>
                             )}
-                        </h1>
+                        </h3>
 
-                        <p className="hero-sub">
-                            MERN stack + Python microservices · job portals · healthcare booking · AI-assisted tooling.
-                            Recently completed a B.E. in Computer Engineering (AIT, 2026).
+                        <p>
+                            Computer Engineering graduate (AIT, 2026) with internship experience at
+                            Krupa Info Services. I build complete full-stack products — job boards
+                            with AI mock interviews, healthcare booking platforms, and computer
+                            vision defect-detection systems — using React, Node.js, Express,
+                            PostgreSQL, MongoDB, and Python (FastAPI).
                         </p>
 
-                        {/* lower-priority actions */}
-                        <div className="hero-actions">
-                            <div className="social-icons">
-                                <a href="mailto:ayushtrikmani124@gmail.com" aria-label="Email">
-                                    <i className="fas fa-envelope"></i>
-                                </a>
-                                <a href="https://github.com/AyushTrikmani" target="_blank" rel="noreferrer" aria-label="GitHub">
-                                    <i className="fab fa-github"></i>
-                                </a>
-                                <a href="https://www.linkedin.com/in/ayush-trikmani/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-                                    <i className="fab fa-linkedin"></i>
-                                </a>
-                                <a href="https://www.instagram.com/ayush_trikmani110/" target="_blank" rel="noreferrer" aria-label="Instagram">
-                                    <i className="fab fa-instagram"></i>
-                                </a>
-                                <a href="tel:+916352243970" aria-label="Phone">
-                                    <i className="fas fa-phone"></i>
-                                </a>
-                            </div>
-                            <a
-                                href="/Ayush_Trikmani_Resume.pdf"
-                                className="btn hero-resume-btn"
-                                download="Ayush_Trikmani_Resume.pdf"
-                            >
-                                Resume <i className="fas fa-arrow-down" style={{ marginLeft: '0.6rem', fontSize: '1.3rem' }}></i>
+                        <div className="social-icons">
+                            <a href="mailto:ayushtrikmani124@gmail.com" aria-label="Email">
+                                <i className="fas fa-envelope"></i>
+                            </a>
+                            <a href="tel:+916352243970" aria-label="Phone">
+                                <i className="fas fa-phone"></i>
+                            </a>
+                            <a href="https://www.instagram.com/ayush_trikmani110/" target="_blank" rel="noreferrer" aria-label="Instagram">
+                                <i className="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://github.com/AyushTrikmani" target="_blank" rel="noreferrer" aria-label="GitHub">
+                                <i className="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/ayush-trikmani/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                                <i className="fab fa-linkedin"></i>
                             </a>
                         </div>
+
+                        <a href="/Ayush_Trikmani_Resume.pdf" className="btn download-btn" download="Ayush_Trikmani_Resume.pdf">
+                            Download Resume
+                        </a>
                     </div>
 
-                    {/* RIGHT: terminal widget */}
-                    <div className="hero-terminal" aria-label="Project highlights terminal">
-                        <div className="terminal-bar">
-                            <span className="t-dot t-dot--red"></span>
-                            <span className="t-dot t-dot--yellow"></span>
-                            <span className="t-dot t-dot--green"></span>
-                            <span className="terminal-title">projects.sh</span>
-                        </div>
-                        <div className="terminal-body">
-                            {TERMINAL_LINES.slice(0, visibleLines).map((line, i) => (
-                                <div key={i} className="terminal-line">
-                                    {line.cmd !== null ? (
-                                        <>
-                                            <span className="t-prompt">{line.prompt} $</span>
-                                            <span className="t-cmd">{line.cmd}</span>
-                                        </>
-                                    ) : (
-                                        <span className="t-output">{line.output}</span>
-                                    )}
-                                </div>
-                            ))}
-                            {/* blinking caret at bottom */}
-                            {visibleLines >= TERMINAL_LINES.length && (
-                                <div className="terminal-line">
-                                    <span className="t-prompt">~ $</span>
-                                    <span className="t-caret" aria-hidden="true">▌</span>
-                                </div>
-                            )}
+                    {/* RIGHT: profile image */}
+                    <div className="hero-image">
+                        <div className="image-wrapper">
+                            <img src="/myface.png" alt="Ayush Trikmani" className="profile-img" />
+                            <div className="blob"></div>
                         </div>
                     </div>
                 </div>
