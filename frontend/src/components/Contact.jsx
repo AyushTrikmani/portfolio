@@ -81,12 +81,12 @@ const Contact = () => {
                 <div className="contact-content">
                     <div className="contact-info">
                         <div className="info-item">
-                            <a href="mailto:ayushtrikmani124@gmail.com">
+                            <a href="mailto:ayushtrikmani@gmail.com">
                                 <i className="fas fa-envelope"></i>
                             </a>
                             <div className="info-text">
                                 <h3>Email</h3>
-                                <p><a href="mailto:ayushtrikmani124@gmail.com">ayushtrikmani124@gmail.com</a></p>
+                                <p><a href="mailto:ayushtrikmani@gmail.com">ayushtrikmani@gmail.com</a></p>
                             </div>
                         </div>
                         <div className="info-item">
