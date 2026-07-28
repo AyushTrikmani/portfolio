@@ -80,7 +80,7 @@ const Hero = () => {
                         </p>
 
                         <div className="social-icons">
-                            <a href="mailto:ayushtrikmani124@gmail.com" aria-label="Email">
+                            <a href="mailto:ayushtrikmani@gmail.com" aria-label="Email">
                                 <i className="fas fa-envelope"></i>
                             </a>
                             <a href="tel:+916352243970" aria-label="Phone">
