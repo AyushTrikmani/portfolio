@@ -39,10 +39,10 @@ const Contact = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         
-        const accessKey = import.meta.env.VITE_WEB3FORMS_KEY;
+        const accessKey = import.meta.env.VITE_web3forms_key;
 
         if (!accessKey) {
-            triggerToast('Configuration Needed', 'Please add VITE_WEB3FORMS_KEY to your frontend .env file.', false);
+            triggerToast('Configuration Needed', 'Please add VITE_web3forms_key to your frontend .env file.', false);
             return;
         }
 
