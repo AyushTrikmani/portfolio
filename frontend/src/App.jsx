@@ -68,17 +68,21 @@ function App() {
             {view === 'portfolio' ? (
                 <>
                     <Navbar theme={theme} toggleTheme={toggleTheme} />
-                    <Hero />
-                    <About />
-                    <Experience />
-                    <Skills />
-                    <Projects onViewDetails={() => setView('job-portal')} />
-                    <Certifications />
-                    <Contact />
+                    <main>
+                        <Hero />
+                        <About />
+                        <Experience />
+                        <Skills />
+                        <Projects onViewDetails={() => setView('job-portal')} />
+                        <Certifications />
+                        <Contact />
+                    </main>
                     <Footer />
                 </>
             ) : (
-                <JobPortalDetails onBack={() => { setView('portfolio'); }} />
+                <main>
+                    <JobPortalDetails onBack={() => { setView('portfolio'); }} />
+                </main>
             )}
         </>
     );
