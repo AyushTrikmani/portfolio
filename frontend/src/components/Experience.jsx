@@ -11,8 +11,9 @@ const Experience = () => {
                             <h3>React.js Developer Intern</h3>
                             <h4>Krupa Info Services</h4>
                             <ul>
-                                <li>Developed React.js-based web applications and responsive UI layouts for client projects.</li>
-                                <li>Implemented RESTful APIs using Node.js and Express.js as part of an offline, on-site internship.</li>
+                                <li>Developed modular React.js user interface components and responsive layouts for client-facing projects.</li>
+                                <li>Assisted in implementing RESTful API endpoints and routing logic using Node.js and Express.js.</li>
+                                <li>Collaborated with senior team members in an on-site office setting to inspect layouts and resolve design specifications.</li>
                             </ul>
                         </div>
                     </div>
@@ -23,7 +24,8 @@ const Experience = () => {
                             <h3>Web Development Intern</h3>
                             <h4>Tamizhan Skills</h4>
                             <ul>
-                                <li>Completed a one-month internship covering web development fundamentals, building responsive web pages using HTML, CSS, and JavaScript.</li>
+                                <li>Completed a one-month internship focusing on web development fundamentals.</li>
+                                <li>Built responsive landing pages and practiced layout styling using HTML5, CSS3, and JavaScript.</li>
                             </ul>
                         </div>
                     </div>
